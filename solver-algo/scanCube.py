@@ -1,6 +1,6 @@
 import cv2 as cv
 import numpy as np
-import cubeMove as cubeMove
+import moveCube as cubeMove
 
 rawImage = cv.imread('cube1.jpg')
 image = cv.cvtColor(rawImage, cv.COLOR_BGR2HSV)

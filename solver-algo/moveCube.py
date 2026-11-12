@@ -1,4 +1,5 @@
 import numpy as np
+from cubeImager import createCubeImage
 
 n=3
 
@@ -209,16 +210,17 @@ def printMoves(moveArray):
     print("")   # print newline
     
 # -------------------------------------------------------------------------------------------------------------
+
+# init array to hold all moves
+movesDone = []
 # test print of cube
-printCube(cube)
+#printCube(cube)
+createCubeImage(cube, "Python files/cubeImages/initialCube.png", movesDone)
 
 # define string of test moves
 testMoves = "R U F' U2 D R F"
 testMoves2 = "B U' F D2 R2 L"
 testMoves3 = "L' B2 U D' L2 R"
-
-# init array to hold all moves
-movesDone = []
 
 # test moves until 'testMoves' is empty
 while testMoves:
@@ -226,8 +228,9 @@ while testMoves:
 
     print("Executing move: " + currentMove)
     cubeMove(cube, currentMove)
-    printCube(cube)
+    #printCube(cube)
     movesDone.append(currentMove)
+    createCubeImage(cube, "Python files/cubeImages/cube" + str(len(movesDone)) + ".png", movesDone)
     printMoves(movesDone)
 
 # clear movesDone and reset cube
@@ -236,32 +239,32 @@ initCube(cube)
 print("----------------------------------------------------------------------------------------------------\n"
       + "Resetting cube...\n"
       + "----------------------------------------------------------------------------------------------------")
-printCube(cube)
+#printCube(cube)
 
-#testMoves2
-while testMoves2:
-    currentMove, testMoves2 = takeNextMove(testMoves2)
+# #testMoves2
+# while testMoves2:
+#     currentMove, testMoves2 = takeNextMove(testMoves2)
 
-    print("Executing move: " + currentMove)
-    cubeMove(cube, currentMove)
-    printCube(cube)
-    movesDone.append(currentMove)
-    printMoves(movesDone)
+#     print("Executing move: " + currentMove)
+#     cubeMove(cube, currentMove)
+#     printCube(cube)
+#     movesDone.append(currentMove)
+#     printMoves(movesDone)
     
-# clear movesDone and reset cube
-movesDone = []
-initCube(cube)
-print("----------------------------------------------------------------------------------------------------\n"
-      + "Resetting cube...\n"
-      + "----------------------------------------------------------------------------------------------------")
-printCube(cube)
+# # clear movesDone and reset cube
+# movesDone = []
+# initCube(cube)
+# print("----------------------------------------------------------------------------------------------------\n"
+#       + "Resetting cube...\n"
+#       + "----------------------------------------------------------------------------------------------------")
+# printCube(cube)
 
-#testMoves3
-while testMoves3:
-    currentMove, testMoves3 = takeNextMove(testMoves3)
+# #testMoves3
+# while testMoves3:
+#     currentMove, testMoves3 = takeNextMove(testMoves3)
 
-    print("Executing move: " + currentMove)
-    cubeMove(cube, currentMove)
-    printCube(cube)
-    movesDone.append(currentMove)
-    printMoves(movesDone)
+#     print("Executing move: " + currentMove)
+#     cubeMove(cube, currentMove)
+#     printCube(cube)
+#     movesDone.append(currentMove)
+#     printMoves(movesDone)
